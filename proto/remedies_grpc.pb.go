@@ -19,177 +19,257 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BrewService_GetRemedies_FullMethodName    = "/brew.BrewService/GetRemedies"
-	BrewService_GetRemedy_FullMethodName      = "/brew.BrewService/GetRemedy"
-	BrewService_GetIngredients_FullMethodName = "/brew.BrewService/GetIngredients"
+	BotanicaService_GetRemedies_FullMethodName    = "/botanica.BotanicaService/GetRemedies"
+	BotanicaService_GetRemedy_FullMethodName      = "/botanica.BotanicaService/GetRemedy"
+	BotanicaService_GetIngredients_FullMethodName = "/botanica.BotanicaService/GetIngredients"
+	BotanicaService_GetForageables_FullMethodName = "/botanica.BotanicaService/GetForageables"
+	BotanicaService_GetForageable_FullMethodName  = "/botanica.BotanicaService/GetForageable"
 )
 
-// BrewServiceClient is the client API for BrewService service.
+// BotanicaServiceClient is the client API for BotanicaService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BrewServiceClient interface {
+type BotanicaServiceClient interface {
+	// Remedies
 	GetRemedies(ctx context.Context, in *GetRemediesRequest, opts ...grpc.CallOption) (*GetRemediesResponse, error)
 	GetRemedy(ctx context.Context, in *GetRemedyRequest, opts ...grpc.CallOption) (*Remedy, error)
 	GetIngredients(ctx context.Context, in *GetIngredientsRequest, opts ...grpc.CallOption) (*GetIngredientsResponse, error)
+	// Forageables
+	GetForageables(ctx context.Context, in *GetForageablesRequest, opts ...grpc.CallOption) (*GetForageablesResponse, error)
+	GetForageable(ctx context.Context, in *GetForageableRequest, opts ...grpc.CallOption) (*Forageable, error)
 }
 
-type brewServiceClient struct {
+type botanicaServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBrewServiceClient(cc grpc.ClientConnInterface) BrewServiceClient {
-	return &brewServiceClient{cc}
+func NewBotanicaServiceClient(cc grpc.ClientConnInterface) BotanicaServiceClient {
+	return &botanicaServiceClient{cc}
 }
 
-func (c *brewServiceClient) GetRemedies(ctx context.Context, in *GetRemediesRequest, opts ...grpc.CallOption) (*GetRemediesResponse, error) {
+func (c *botanicaServiceClient) GetRemedies(ctx context.Context, in *GetRemediesRequest, opts ...grpc.CallOption) (*GetRemediesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRemediesResponse)
-	err := c.cc.Invoke(ctx, BrewService_GetRemedies_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BotanicaService_GetRemedies_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brewServiceClient) GetRemedy(ctx context.Context, in *GetRemedyRequest, opts ...grpc.CallOption) (*Remedy, error) {
+func (c *botanicaServiceClient) GetRemedy(ctx context.Context, in *GetRemedyRequest, opts ...grpc.CallOption) (*Remedy, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Remedy)
-	err := c.cc.Invoke(ctx, BrewService_GetRemedy_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BotanicaService_GetRemedy_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *brewServiceClient) GetIngredients(ctx context.Context, in *GetIngredientsRequest, opts ...grpc.CallOption) (*GetIngredientsResponse, error) {
+func (c *botanicaServiceClient) GetIngredients(ctx context.Context, in *GetIngredientsRequest, opts ...grpc.CallOption) (*GetIngredientsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIngredientsResponse)
-	err := c.cc.Invoke(ctx, BrewService_GetIngredients_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BotanicaService_GetIngredients_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BrewServiceServer is the server API for BrewService service.
-// All implementations must embed UnimplementedBrewServiceServer
+func (c *botanicaServiceClient) GetForageables(ctx context.Context, in *GetForageablesRequest, opts ...grpc.CallOption) (*GetForageablesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetForageablesResponse)
+	err := c.cc.Invoke(ctx, BotanicaService_GetForageables_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *botanicaServiceClient) GetForageable(ctx context.Context, in *GetForageableRequest, opts ...grpc.CallOption) (*Forageable, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Forageable)
+	err := c.cc.Invoke(ctx, BotanicaService_GetForageable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BotanicaServiceServer is the server API for BotanicaService service.
+// All implementations must embed UnimplementedBotanicaServiceServer
 // for forward compatibility.
-type BrewServiceServer interface {
+type BotanicaServiceServer interface {
+	// Remedies
 	GetRemedies(context.Context, *GetRemediesRequest) (*GetRemediesResponse, error)
 	GetRemedy(context.Context, *GetRemedyRequest) (*Remedy, error)
 	GetIngredients(context.Context, *GetIngredientsRequest) (*GetIngredientsResponse, error)
-	mustEmbedUnimplementedBrewServiceServer()
+	// Forageables
+	GetForageables(context.Context, *GetForageablesRequest) (*GetForageablesResponse, error)
+	GetForageable(context.Context, *GetForageableRequest) (*Forageable, error)
+	mustEmbedUnimplementedBotanicaServiceServer()
 }
 
-// UnimplementedBrewServiceServer must be embedded to have
+// UnimplementedBotanicaServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBrewServiceServer struct{}
+type UnimplementedBotanicaServiceServer struct{}
 
-func (UnimplementedBrewServiceServer) GetRemedies(context.Context, *GetRemediesRequest) (*GetRemediesResponse, error) {
+func (UnimplementedBotanicaServiceServer) GetRemedies(context.Context, *GetRemediesRequest) (*GetRemediesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemedies not implemented")
 }
-func (UnimplementedBrewServiceServer) GetRemedy(context.Context, *GetRemedyRequest) (*Remedy, error) {
+func (UnimplementedBotanicaServiceServer) GetRemedy(context.Context, *GetRemedyRequest) (*Remedy, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemedy not implemented")
 }
-func (UnimplementedBrewServiceServer) GetIngredients(context.Context, *GetIngredientsRequest) (*GetIngredientsResponse, error) {
+func (UnimplementedBotanicaServiceServer) GetIngredients(context.Context, *GetIngredientsRequest) (*GetIngredientsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetIngredients not implemented")
 }
-func (UnimplementedBrewServiceServer) mustEmbedUnimplementedBrewServiceServer() {}
-func (UnimplementedBrewServiceServer) testEmbeddedByValue()                     {}
+func (UnimplementedBotanicaServiceServer) GetForageables(context.Context, *GetForageablesRequest) (*GetForageablesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetForageables not implemented")
+}
+func (UnimplementedBotanicaServiceServer) GetForageable(context.Context, *GetForageableRequest) (*Forageable, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetForageable not implemented")
+}
+func (UnimplementedBotanicaServiceServer) mustEmbedUnimplementedBotanicaServiceServer() {}
+func (UnimplementedBotanicaServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeBrewServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BrewServiceServer will
+// UnsafeBotanicaServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BotanicaServiceServer will
 // result in compilation errors.
-type UnsafeBrewServiceServer interface {
-	mustEmbedUnimplementedBrewServiceServer()
+type UnsafeBotanicaServiceServer interface {
+	mustEmbedUnimplementedBotanicaServiceServer()
 }
 
-func RegisterBrewServiceServer(s grpc.ServiceRegistrar, srv BrewServiceServer) {
-	// If the following call panics, it indicates UnimplementedBrewServiceServer was
+func RegisterBotanicaServiceServer(s grpc.ServiceRegistrar, srv BotanicaServiceServer) {
+	// If the following call panics, it indicates UnimplementedBotanicaServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BrewService_ServiceDesc, srv)
+	s.RegisterService(&BotanicaService_ServiceDesc, srv)
 }
 
-func _BrewService_GetRemedies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BotanicaService_GetRemedies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRemediesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrewServiceServer).GetRemedies(ctx, in)
+		return srv.(BotanicaServiceServer).GetRemedies(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrewService_GetRemedies_FullMethodName,
+		FullMethod: BotanicaService_GetRemedies_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrewServiceServer).GetRemedies(ctx, req.(*GetRemediesRequest))
+		return srv.(BotanicaServiceServer).GetRemedies(ctx, req.(*GetRemediesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrewService_GetRemedy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BotanicaService_GetRemedy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRemedyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrewServiceServer).GetRemedy(ctx, in)
+		return srv.(BotanicaServiceServer).GetRemedy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrewService_GetRemedy_FullMethodName,
+		FullMethod: BotanicaService_GetRemedy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrewServiceServer).GetRemedy(ctx, req.(*GetRemedyRequest))
+		return srv.(BotanicaServiceServer).GetRemedy(ctx, req.(*GetRemedyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BrewService_GetIngredients_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BotanicaService_GetIngredients_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetIngredientsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BrewServiceServer).GetIngredients(ctx, in)
+		return srv.(BotanicaServiceServer).GetIngredients(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BrewService_GetIngredients_FullMethodName,
+		FullMethod: BotanicaService_GetIngredients_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BrewServiceServer).GetIngredients(ctx, req.(*GetIngredientsRequest))
+		return srv.(BotanicaServiceServer).GetIngredients(ctx, req.(*GetIngredientsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BrewService_ServiceDesc is the grpc.ServiceDesc for BrewService service.
+func _BotanicaService_GetForageables_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetForageablesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BotanicaServiceServer).GetForageables(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BotanicaService_GetForageables_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BotanicaServiceServer).GetForageables(ctx, req.(*GetForageablesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BotanicaService_GetForageable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetForageableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BotanicaServiceServer).GetForageable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BotanicaService_GetForageable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BotanicaServiceServer).GetForageable(ctx, req.(*GetForageableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BotanicaService_ServiceDesc is the grpc.ServiceDesc for BotanicaService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BrewService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "brew.BrewService",
-	HandlerType: (*BrewServiceServer)(nil),
+var BotanicaService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "botanica.BotanicaService",
+	HandlerType: (*BotanicaServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetRemedies",
-			Handler:    _BrewService_GetRemedies_Handler,
+			Handler:    _BotanicaService_GetRemedies_Handler,
 		},
 		{
 			MethodName: "GetRemedy",
-			Handler:    _BrewService_GetRemedy_Handler,
+			Handler:    _BotanicaService_GetRemedy_Handler,
 		},
 		{
 			MethodName: "GetIngredients",
-			Handler:    _BrewService_GetIngredients_Handler,
+			Handler:    _BotanicaService_GetIngredients_Handler,
+		},
+		{
+			MethodName: "GetForageables",
+			Handler:    _BotanicaService_GetForageables_Handler,
+		},
+		{
+			MethodName: "GetForageable",
+			Handler:    _BotanicaService_GetForageable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

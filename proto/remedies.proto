@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package brew;
+package botanica;
 
-option go_package = "github.com/ricocynthia/brew/proto";
+option go_package = "github.com/ricocynthia/botanica/proto";
 
-// --- Messages ---
+// --- Remedy Messages ---
 
 message Ingredient {
   string name = 1;
@@ -45,10 +45,48 @@ message GetIngredientsResponse {
   repeated string ingredients = 2;
 }
 
+// --- Forageable Messages ---
+
+message Forageable {
+  int32 id = 1;
+  string name = 2;
+  string category = 3;
+  string tagline = 4;
+  repeated string properties = 5;
+  string habitat = 6;
+  string season = 7;
+  string parts = 8;
+  string uses = 9;
+  string identification = 10;
+  string harvesting = 11;
+  string storage = 12;
+  string warnings = 13;
+  string fun_fact = 14;
+}
+
+message GetForageablesRequest {
+  string category = 1;
+  string property = 2;
+}
+
+message GetForageablesResponse {
+  int32 count = 1;
+  repeated Forageable forageables = 2;
+}
+
+message GetForageableRequest {
+  int32 id = 1;
+}
+
 // --- Service ---
 
-service BrewService {
+service BotanicaService {
+  // Remedies
   rpc GetRemedies(GetRemediesRequest) returns (GetRemediesResponse);
   rpc GetRemedy(GetRemedyRequest) returns (Remedy);
   rpc GetIngredients(GetIngredientsRequest) returns (GetIngredientsResponse);
+
+  // Forageables
+  rpc GetForageables(GetForageablesRequest) returns (GetForageablesResponse);
+  rpc GetForageable(GetForageableRequest) returns (Forageable);
 }

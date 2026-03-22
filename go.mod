@@ -1,4 +1,4 @@
-module github.com/ricocynthia/brew
+module github.com/ricocynthia/botanica
 
 go 1.26.1
 

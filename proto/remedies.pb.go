@@ -425,23 +425,319 @@ func (x *GetIngredientsResponse) GetIngredients() []string {
 	return nil
 }
 
+type Forageable struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Id             int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name           string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Category       string                 `protobuf:"bytes,3,opt,name=category,proto3" json:"category,omitempty"`
+	Tagline        string                 `protobuf:"bytes,4,opt,name=tagline,proto3" json:"tagline,omitempty"`
+	Properties     []string               `protobuf:"bytes,5,rep,name=properties,proto3" json:"properties,omitempty"`
+	Habitat        string                 `protobuf:"bytes,6,opt,name=habitat,proto3" json:"habitat,omitempty"`
+	Season         string                 `protobuf:"bytes,7,opt,name=season,proto3" json:"season,omitempty"`
+	Parts          string                 `protobuf:"bytes,8,opt,name=parts,proto3" json:"parts,omitempty"`
+	Uses           string                 `protobuf:"bytes,9,opt,name=uses,proto3" json:"uses,omitempty"`
+	Identification string                 `protobuf:"bytes,10,opt,name=identification,proto3" json:"identification,omitempty"`
+	Harvesting     string                 `protobuf:"bytes,11,opt,name=harvesting,proto3" json:"harvesting,omitempty"`
+	Storage        string                 `protobuf:"bytes,12,opt,name=storage,proto3" json:"storage,omitempty"`
+	Warnings       string                 `protobuf:"bytes,13,opt,name=warnings,proto3" json:"warnings,omitempty"`
+	FunFact        string                 `protobuf:"bytes,14,opt,name=fun_fact,json=funFact,proto3" json:"fun_fact,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *Forageable) Reset() {
+	*x = Forageable{}
+	mi := &file_proto_remedies_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Forageable) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Forageable) ProtoMessage() {}
+
+func (x *Forageable) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_remedies_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Forageable.ProtoReflect.Descriptor instead.
+func (*Forageable) Descriptor() ([]byte, []int) {
+	return file_proto_remedies_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Forageable) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Forageable) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Forageable) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *Forageable) GetTagline() string {
+	if x != nil {
+		return x.Tagline
+	}
+	return ""
+}
+
+func (x *Forageable) GetProperties() []string {
+	if x != nil {
+		return x.Properties
+	}
+	return nil
+}
+
+func (x *Forageable) GetHabitat() string {
+	if x != nil {
+		return x.Habitat
+	}
+	return ""
+}
+
+func (x *Forageable) GetSeason() string {
+	if x != nil {
+		return x.Season
+	}
+	return ""
+}
+
+func (x *Forageable) GetParts() string {
+	if x != nil {
+		return x.Parts
+	}
+	return ""
+}
+
+func (x *Forageable) GetUses() string {
+	if x != nil {
+		return x.Uses
+	}
+	return ""
+}
+
+func (x *Forageable) GetIdentification() string {
+	if x != nil {
+		return x.Identification
+	}
+	return ""
+}
+
+func (x *Forageable) GetHarvesting() string {
+	if x != nil {
+		return x.Harvesting
+	}
+	return ""
+}
+
+func (x *Forageable) GetStorage() string {
+	if x != nil {
+		return x.Storage
+	}
+	return ""
+}
+
+func (x *Forageable) GetWarnings() string {
+	if x != nil {
+		return x.Warnings
+	}
+	return ""
+}
+
+func (x *Forageable) GetFunFact() string {
+	if x != nil {
+		return x.FunFact
+	}
+	return ""
+}
+
+type GetForageablesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Category      string                 `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Property      string                 `protobuf:"bytes,2,opt,name=property,proto3" json:"property,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetForageablesRequest) Reset() {
+	*x = GetForageablesRequest{}
+	mi := &file_proto_remedies_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetForageablesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetForageablesRequest) ProtoMessage() {}
+
+func (x *GetForageablesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_remedies_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetForageablesRequest.ProtoReflect.Descriptor instead.
+func (*GetForageablesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_remedies_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetForageablesRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *GetForageablesRequest) GetProperty() string {
+	if x != nil {
+		return x.Property
+	}
+	return ""
+}
+
+type GetForageablesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Count         int32                  `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
+	Forageables   []*Forageable          `protobuf:"bytes,2,rep,name=forageables,proto3" json:"forageables,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetForageablesResponse) Reset() {
+	*x = GetForageablesResponse{}
+	mi := &file_proto_remedies_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetForageablesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetForageablesResponse) ProtoMessage() {}
+
+func (x *GetForageablesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_remedies_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetForageablesResponse.ProtoReflect.Descriptor instead.
+func (*GetForageablesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_remedies_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetForageablesResponse) GetCount() int32 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
+}
+
+func (x *GetForageablesResponse) GetForageables() []*Forageable {
+	if x != nil {
+		return x.Forageables
+	}
+	return nil
+}
+
+type GetForageableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetForageableRequest) Reset() {
+	*x = GetForageableRequest{}
+	mi := &file_proto_remedies_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetForageableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetForageableRequest) ProtoMessage() {}
+
+func (x *GetForageableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_remedies_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetForageableRequest.ProtoReflect.Descriptor instead.
+func (*GetForageableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_remedies_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetForageableRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 var File_proto_remedies_proto protoreflect.FileDescriptor
 
 const file_proto_remedies_proto_rawDesc = "" +
 	"\n" +
-	"\x14proto/remedies.proto\x12\x04brew\"N\n" +
+	"\x14proto/remedies.proto\x12\bbotanica\"N\n" +
 	"\n" +
 	"Ingredient\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n" +
 	"\x06amount\x18\x02 \x01(\tR\x06amount\x12\x14\n" +
-	"\x05notes\x18\x03 \x01(\tR\x05notes\"\x86\x02\n" +
+	"\x05notes\x18\x03 \x01(\tR\x05notes\"\x8a\x02\n" +
 	"\x06Remedy\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
 	"\x04type\x18\x03 \x01(\tR\x04type\x12 \n" +
 	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x16\n" +
-	"\x06origin\x18\x05 \x01(\tR\x06origin\x122\n" +
-	"\vingredients\x18\x06 \x03(\v2\x10.brew.IngredientR\vingredients\x12\x1e\n" +
+	"\x06origin\x18\x05 \x01(\tR\x06origin\x126\n" +
+	"\vingredients\x18\x06 \x03(\v2\x14.botanica.IngredientR\vingredients\x12\x1e\n" +
 	"\n" +
 	"properties\x18\a \x03(\tR\n" +
 	"properties\x12 \n" +
@@ -449,20 +745,51 @@ const file_proto_remedies_proto_rawDesc = "" +
 	"\x05notes\x18\t \x01(\tR\x05notes\"D\n" +
 	"\x12GetRemediesRequest\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x1a\n" +
-	"\bproperty\x18\x02 \x01(\tR\bproperty\"U\n" +
+	"\bproperty\x18\x02 \x01(\tR\bproperty\"Y\n" +
 	"\x13GetRemediesResponse\x12\x14\n" +
-	"\x05count\x18\x01 \x01(\x05R\x05count\x12(\n" +
-	"\bremedies\x18\x02 \x03(\v2\f.brew.RemedyR\bremedies\"\"\n" +
+	"\x05count\x18\x01 \x01(\x05R\x05count\x12,\n" +
+	"\bremedies\x18\x02 \x03(\v2\x10.botanica.RemedyR\bremedies\"\"\n" +
 	"\x10GetRemedyRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\"\x17\n" +
 	"\x15GetIngredientsRequest\"P\n" +
 	"\x16GetIngredientsResponse\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\x05R\x05count\x12 \n" +
-	"\vingredients\x18\x02 \x03(\tR\vingredients2\xd1\x01\n" +
-	"\vBrewService\x12B\n" +
-	"\vGetRemedies\x12\x18.brew.GetRemediesRequest\x1a\x19.brew.GetRemediesResponse\x121\n" +
-	"\tGetRemedy\x12\x16.brew.GetRemedyRequest\x1a\f.brew.Remedy\x12K\n" +
-	"\x0eGetIngredients\x12\x1b.brew.GetIngredientsRequest\x1a\x1c.brew.GetIngredientsResponseB#Z!github.com/ricocynthia/brew/protob\x06proto3"
+	"\vingredients\x18\x02 \x03(\tR\vingredients\"\xfb\x02\n" +
+	"\n" +
+	"Forageable\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
+	"\bcategory\x18\x03 \x01(\tR\bcategory\x12\x18\n" +
+	"\atagline\x18\x04 \x01(\tR\atagline\x12\x1e\n" +
+	"\n" +
+	"properties\x18\x05 \x03(\tR\n" +
+	"properties\x12\x18\n" +
+	"\ahabitat\x18\x06 \x01(\tR\ahabitat\x12\x16\n" +
+	"\x06season\x18\a \x01(\tR\x06season\x12\x14\n" +
+	"\x05parts\x18\b \x01(\tR\x05parts\x12\x12\n" +
+	"\x04uses\x18\t \x01(\tR\x04uses\x12&\n" +
+	"\x0eidentification\x18\n" +
+	" \x01(\tR\x0eidentification\x12\x1e\n" +
+	"\n" +
+	"harvesting\x18\v \x01(\tR\n" +
+	"harvesting\x12\x18\n" +
+	"\astorage\x18\f \x01(\tR\astorage\x12\x1a\n" +
+	"\bwarnings\x18\r \x01(\tR\bwarnings\x12\x19\n" +
+	"\bfun_fact\x18\x0e \x01(\tR\afunFact\"O\n" +
+	"\x15GetForageablesRequest\x12\x1a\n" +
+	"\bcategory\x18\x01 \x01(\tR\bcategory\x12\x1a\n" +
+	"\bproperty\x18\x02 \x01(\tR\bproperty\"f\n" +
+	"\x16GetForageablesResponse\x12\x14\n" +
+	"\x05count\x18\x01 \x01(\x05R\x05count\x126\n" +
+	"\vforageables\x18\x02 \x03(\v2\x14.botanica.ForageableR\vforageables\"&\n" +
+	"\x14GetForageableRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id2\x89\x03\n" +
+	"\x0fBotanicaService\x12J\n" +
+	"\vGetRemedies\x12\x1c.botanica.GetRemediesRequest\x1a\x1d.botanica.GetRemediesResponse\x129\n" +
+	"\tGetRemedy\x12\x1a.botanica.GetRemedyRequest\x1a\x10.botanica.Remedy\x12S\n" +
+	"\x0eGetIngredients\x12\x1f.botanica.GetIngredientsRequest\x1a .botanica.GetIngredientsResponse\x12S\n" +
+	"\x0eGetForageables\x12\x1f.botanica.GetForageablesRequest\x1a .botanica.GetForageablesResponse\x12E\n" +
+	"\rGetForageable\x12\x1e.botanica.GetForageableRequest\x1a\x14.botanica.ForageableB'Z%github.com/ricocynthia/botanica/protob\x06proto3"
 
 var (
 	file_proto_remedies_proto_rawDescOnce sync.Once
@@ -476,30 +803,39 @@ func file_proto_remedies_proto_rawDescGZIP() []byte {
 	return file_proto_remedies_proto_rawDescData
 }
 
-var file_proto_remedies_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_remedies_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_proto_remedies_proto_goTypes = []any{
-	(*Ingredient)(nil),             // 0: brew.Ingredient
-	(*Remedy)(nil),                 // 1: brew.Remedy
-	(*GetRemediesRequest)(nil),     // 2: brew.GetRemediesRequest
-	(*GetRemediesResponse)(nil),    // 3: brew.GetRemediesResponse
-	(*GetRemedyRequest)(nil),       // 4: brew.GetRemedyRequest
-	(*GetIngredientsRequest)(nil),  // 5: brew.GetIngredientsRequest
-	(*GetIngredientsResponse)(nil), // 6: brew.GetIngredientsResponse
+	(*Ingredient)(nil),             // 0: botanica.Ingredient
+	(*Remedy)(nil),                 // 1: botanica.Remedy
+	(*GetRemediesRequest)(nil),     // 2: botanica.GetRemediesRequest
+	(*GetRemediesResponse)(nil),    // 3: botanica.GetRemediesResponse
+	(*GetRemedyRequest)(nil),       // 4: botanica.GetRemedyRequest
+	(*GetIngredientsRequest)(nil),  // 5: botanica.GetIngredientsRequest
+	(*GetIngredientsResponse)(nil), // 6: botanica.GetIngredientsResponse
+	(*Forageable)(nil),             // 7: botanica.Forageable
+	(*GetForageablesRequest)(nil),  // 8: botanica.GetForageablesRequest
+	(*GetForageablesResponse)(nil), // 9: botanica.GetForageablesResponse
+	(*GetForageableRequest)(nil),   // 10: botanica.GetForageableRequest
 }
 var file_proto_remedies_proto_depIdxs = []int32{
-	0, // 0: brew.Remedy.ingredients:type_name -> brew.Ingredient
-	1, // 1: brew.GetRemediesResponse.remedies:type_name -> brew.Remedy
-	2, // 2: brew.BrewService.GetRemedies:input_type -> brew.GetRemediesRequest
-	4, // 3: brew.BrewService.GetRemedy:input_type -> brew.GetRemedyRequest
-	5, // 4: brew.BrewService.GetIngredients:input_type -> brew.GetIngredientsRequest
-	3, // 5: brew.BrewService.GetRemedies:output_type -> brew.GetRemediesResponse
-	1, // 6: brew.BrewService.GetRemedy:output_type -> brew.Remedy
-	6, // 7: brew.BrewService.GetIngredients:output_type -> brew.GetIngredientsResponse
-	5, // [5:8] is the sub-list for method output_type
-	2, // [2:5] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0,  // 0: botanica.Remedy.ingredients:type_name -> botanica.Ingredient
+	1,  // 1: botanica.GetRemediesResponse.remedies:type_name -> botanica.Remedy
+	7,  // 2: botanica.GetForageablesResponse.forageables:type_name -> botanica.Forageable
+	2,  // 3: botanica.BotanicaService.GetRemedies:input_type -> botanica.GetRemediesRequest
+	4,  // 4: botanica.BotanicaService.GetRemedy:input_type -> botanica.GetRemedyRequest
+	5,  // 5: botanica.BotanicaService.GetIngredients:input_type -> botanica.GetIngredientsRequest
+	8,  // 6: botanica.BotanicaService.GetForageables:input_type -> botanica.GetForageablesRequest
+	10, // 7: botanica.BotanicaService.GetForageable:input_type -> botanica.GetForageableRequest
+	3,  // 8: botanica.BotanicaService.GetRemedies:output_type -> botanica.GetRemediesResponse
+	1,  // 9: botanica.BotanicaService.GetRemedy:output_type -> botanica.Remedy
+	6,  // 10: botanica.BotanicaService.GetIngredients:output_type -> botanica.GetIngredientsResponse
+	9,  // 11: botanica.BotanicaService.GetForageables:output_type -> botanica.GetForageablesResponse
+	7,  // 12: botanica.BotanicaService.GetForageable:output_type -> botanica.Forageable
+	8,  // [8:13] is the sub-list for method output_type
+	3,  // [3:8] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_proto_remedies_proto_init() }
@@ -513,7 +849,7 @@ func file_proto_remedies_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_remedies_proto_rawDesc), len(file_proto_remedies_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
