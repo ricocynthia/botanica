@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package brew;
+
+option go_package = "github.com/ricocynthia/brew/proto";
+
+// --- Messages ---
+
+message Ingredient {
+  string name = 1;
+  string amount = 2;
+  string notes = 3;
+}
+
+message Remedy {
+  int32 id = 1;
+  string name = 2;
+  string type = 3;
+  string description = 4;
+  string origin = 5;
+  repeated Ingredient ingredients = 6;
+  repeated string properties = 7;
+  string preparation = 8;
+  string notes = 9;
+}
+
+message GetRemediesRequest {
+  string type = 1;
+  string property = 2;
+}
+
+message GetRemediesResponse {
+  int32 count = 1;
+  repeated Remedy remedies = 2;
+}
+
+message GetRemedyRequest {
+  int32 id = 1;
+}
+
+message GetIngredientsRequest {}
+
+message GetIngredientsResponse {
+  int32 count = 1;
+  repeated string ingredients = 2;
+}
+
+// --- Service ---
+
+service BrewService {
+  rpc GetRemedies(GetRemediesRequest) returns (GetRemediesResponse);
+  rpc GetRemedy(GetRemedyRequest) returns (Remedy);
+  rpc GetIngredients(GetIngredientsRequest) returns (GetIngredientsResponse);
+}
